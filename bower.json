@@ -1,0 +1,23 @@
+{
+  "name": "php_oe28_brs",
+  "description": "",
+  "main": "",
+  "authors": [
+    "haiphung1 <haipmph05501@fpt.edu.vn>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/haiphung1/php_oe28_brs",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jQuery": "^3.4.1",
+    "font-awesome": "^5.13.0"
+  }
+}
