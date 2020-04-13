@@ -17,4 +17,14 @@ class Book extends Model
         'category_id',
         'creator_id',
     ];
+
+    public function creator()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
