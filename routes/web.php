@@ -33,3 +33,10 @@ Route::group([
 ], function () {
     Route::get('list-book', 'Admin\HomeController@getAllBook')->name('list-book');
 });
+
+Route::group([
+    'prefix' => 'admin/book',
+    'middleware' => ['auth', 'role.admin'],
+], function () {
+    Route::resource('books', 'Admin\BookController');
+});

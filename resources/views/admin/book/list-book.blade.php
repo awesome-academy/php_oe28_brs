@@ -10,6 +10,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">{{ trans('messages.list_book') }}</h3>
+                    <a href="{{ route('books.create') }}" class="btn btn-success btn-sm float-right">{{ trans('messages.add_book') }}</a>
                 </div>
                 <div class="card-body">
                     <table id="example1" class="table table-bordered table-striped">
@@ -33,7 +34,17 @@
                                 <td>{{ $book->author }}</td>
                                 <td>{{ $book->creator->full_name }}</td>
                                 <td>{{ $book->created_at }}</td>
-                                <td></td>
+                                <td>
+                                    <form action="{{ route('books.destroy', $book->id) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm float-left btn-remove">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                    <a href="{{ route('books.edit', $book->id) }}" class="btn btn-primary btn-sm ml-1"><i class="fas fa-edit"></i></a>
+                                    <a href="#" class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
