@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use App\Models\Category;
+
 abstract class BaseRepository implements RepositoryInterface
 {
     protected $model;
@@ -37,7 +39,7 @@ abstract class BaseRepository implements RepositoryInterface
 
     public function update($id, $attributes = [])
     {
-        $result = $this->findOrFail($id);
+        $result = $this->model->findOrFail($id);
         $result->update($attributes);
 
         return $result;
@@ -45,9 +47,14 @@ abstract class BaseRepository implements RepositoryInterface
 
     public function delete($id)
     {
-        $result = $this->findOrFail($id);
+        $result = $this->model->findOrFail($id);
         $result->delete();
 
         return true;
+    }
+
+    public function getAllCategory()
+    {
+        return Category::all();
     }
 }

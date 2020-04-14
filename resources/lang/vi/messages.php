@@ -20,4 +20,13 @@ return [
     'creator' => 'Người tạo',
     'created_at' => 'Ngày đăng',
     'action' => 'Hành Động',
+    'submit' => 'Lưu',
+    'cancel' => 'Trở lại',
+    'edit_book' => 'Chỉnh sửa sách',
+    'edit' => 'Chỉnh sửa',
+    'image' => 'Ảnh',
+    'title_book' => 'Tiêu đề sách',
+    'publish_date' => 'Ngày xuất bản',
+    'add_book' => 'Thêm sách',
+    'success' => 'Thành công',
 ];

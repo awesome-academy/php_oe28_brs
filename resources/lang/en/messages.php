@@ -20,4 +20,13 @@ return [
     'creator' => 'Creator',
     'created_at' => 'Created at',
     'action' => 'Action',
+    'submit' => 'Submit',
+    'cancel' => 'Cancel',
+    'edit_book' => 'Edit book',
+    'edit' => 'Edit',
+    'image' => 'Image',
+    'title_book' => 'Title book',
+    'publish_date' => 'Publish date',
+    'add_boob' => 'Add book',
+    'success' => 'success',
 ];
