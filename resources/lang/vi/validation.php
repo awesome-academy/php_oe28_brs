@@ -20,4 +20,5 @@ return [
     'image_mimes' => 'Định dạng ảnh jpb, png, jpeg',
     'image_max' => 'Ảnh không vượt quá 2048Kb',
     'category_required' => 'Không được để trống danh mục',
+    'review_required' => 'Không được để trống nhận xét',
 ];
