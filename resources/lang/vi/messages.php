@@ -29,4 +29,11 @@ return [
     'publish_date' => 'Ngày xuất bản',
     'add_book' => 'Thêm sách',
     'success' => 'Thành công',
+    'review' => 'Bình phẩm',
+    'add_review' => 'Thêm bình phẩm',
+    'new_review' => 'Bình phẩm mới',
+    'book_review' => 'Bình phầm sách',
+    'write_review' => 'Viết bình phẩm',
+    'read_more' => 'Đọc thêm',
+    'you_review' => 'Bình phầm của bạn',
 ];

@@ -14,4 +14,19 @@ class Review extends Model
         'content',
         'status',
     ];
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function favorites()
+    {
+        return $this->belongsToMany(User::class, 'favorites', 'review_id', 'user_id');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Repositories\Review\ReviewRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,6 +17,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(
             \App\Repositories\Book\BookRepositoryInterface::class,
             \App\Repositories\Book\BookRepository::class
+        );
+        $this->app->singleton(
+            \App\Repositories\Review\ReviewRepositoryInterface::class,
+            \App\Repositories\Review\ReviewRepository::class
         );
     }
 

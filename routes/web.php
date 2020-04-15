@@ -17,7 +17,19 @@ Route::get('login', 'Auth\LoginController@login')->name('login');
 Route::post('login', 'Auth\LoginController@checkLogin')->name('checkLogin');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('/', 'HomeController@index')->name('index')->middleware('auth');
+Route::get('/', 'HomeController@index')->name('index');
+
+Route::group([
+    'prefix' => 'reviews',
+    'as' => 'reviews.',
+    'middleware' => 'auth',
+], function () {
+    Route::get('/', 'ReviewController@index')->name('index');
+    Route::get('book/{book}', 'ReviewController@review')->name('book');
+    Route::get('add/{book}', 'ReviewController@createReview')->name('add');
+    Route::post('save/{book}', 'ReviewController@saveReview')->name('save');
+});
+
 Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
