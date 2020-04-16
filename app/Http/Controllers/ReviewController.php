@@ -18,7 +18,9 @@ class ReviewController extends Controller
 
     public function index()
     {
-        return view('review-manage');
+        $reviews = $this->reviewRepo->getReviewByUser();
+
+        return view('review-manage', compact('reviews'));
     }
 
     public function review($id)
@@ -46,12 +48,19 @@ class ReviewController extends Controller
         ];
         $count = $this->reviewRepo->countUserReview($id);
 
-        if ($count == StatusReview::StatusActive) {
+        if ($count == StatusReview::StatusInactive) {
             $this->reviewRepo->create($data);
 
             return redirect()->route('reviews.index');
         } else {
             return redirect()->route('reviews.index');
         }
+    }
+
+    public function showReview($id)
+    {
+        $review = $this->reviewRepo->find($id);
+
+        return view('review-detail', compact('review'));
     }
 }

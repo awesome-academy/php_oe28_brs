@@ -28,6 +28,7 @@ Route::group([
     Route::get('book/{book}', 'ReviewController@review')->name('book');
     Route::get('add/{book}', 'ReviewController@createReview')->name('add');
     Route::post('save/{book}', 'ReviewController@saveReview')->name('save');
+    Route::get('show/{review}', 'ReviewController@showReview')->name('show');
 });
 
 Route::group([
@@ -51,4 +52,13 @@ Route::group([
     'middleware' => ['auth', 'role.admin'],
 ], function () {
     Route::resource('books', 'Admin\BookController');
+});
+
+Route::group([
+    'prefix' => 'admin/reviews',
+    'as' => 'reviews.',
+    'middleware' => ['auth', 'role.admin'],
+], function () {
+    Route::get('list', 'Admin\ReviewController@index')->name('list');
+    Route::post('approved/{review}', 'Admin\ReviewController@approved')->name('approved');
 });

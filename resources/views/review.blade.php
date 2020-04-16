@@ -37,7 +37,7 @@
                         @foreach ($reviews as $review)
                             <article class="blog__post flex-wrap">
                                 <div class="content">
-                                    <h4><a href="blog-details.html">{{ $review->book->name }}</a></h4>
+                                    <h4><a href="{{ route('reviews.show', $review->id) }}">{{ $review->book->name }}</a></h4>
                                     <ul class="post__meta">
                                         <li>{{ trans('messages.creator') }}: {{ $review->user->full_name }}</li>
                                         <li class="post_separator">/</li>
@@ -50,7 +50,7 @@
                                     </ul>
                                     <p>{{ $review->book->title }}</p>
                                     <div class="blog__btn">
-                                        <a href="#">{{ trans('messages.read_more') }}</a>
+                                        <a href="{{ route('reviews.show', $review->id) }}">{{ trans('messages.read_more') }}</a>
                                     </div>
                                 </div>
                                 <hr>
