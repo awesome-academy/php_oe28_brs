@@ -9,4 +9,5 @@ interface ReviewRepositoryInterface
     public function getNewReview();
     public function getBookById($id);
     public function countUserReview($id);
+    public function getReviewByUser();
 }

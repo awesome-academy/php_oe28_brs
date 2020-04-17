@@ -3,6 +3,7 @@
 namespace App\Repositories\Review;
 
 use App\Enums\Paginate;
+use App\Enums\StatusReview;
 use App\Models\Book;
 use App\Models\Review;
 use App\Repositories\BaseRepository;
@@ -20,6 +21,7 @@ class ReviewRepository extends BaseRepository implements ReviewRepositoryInterfa
     {
         return $this->model->groupBy('book_id')
             ->select('book_id', DB::raw('count(*) as total'))
+            ->where('status', StatusReview::StatusActive)
             ->orderBy('total', 'desc')
             ->paginate(Paginate::Page);
     }
@@ -27,6 +29,7 @@ class ReviewRepository extends BaseRepository implements ReviewRepositoryInterfa
     public function BookFindReview($id)
     {
           return $this->model->where('book_id', $id)
+              ->where('status', StatusReview::StatusActive)
              ->paginate(Paginate::Page);
     }
 
@@ -49,5 +52,13 @@ class ReviewRepository extends BaseRepository implements ReviewRepositoryInterfa
             ->where('book_id', $id)
             ->where('user_id', Auth::user()->id)
             ->count();
+    }
+
+    public function getReviewByUser()
+    {
+        return $this->model
+            ->orderBy('created_at', 'desc')
+            ->where('user_id', Auth::user()->id)
+            ->get();
     }
 }
